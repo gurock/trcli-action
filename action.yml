@@ -1,0 +1,115 @@
+name: 'TestRail CLI'
+description: 'Use the TestRail CLI to interact with TestRail'
+inputs:
+  trcli_version:
+    description: 'Version of the CLI to be installed (defaults to latest)'
+    required: false
+  config:
+    description: 'Optional path for config yml file'
+    required: false
+  host:
+    description: 'TestRail host URL (i.e.: https://my-instance.testrail.io)'
+    required: true
+  username:
+    description: 'Authentication username'
+    required: true
+  password:
+    description: 'Authentication password or API key'
+    required: true
+  project:
+    description: 'Name of the project (alternatively, use the "project_id" parameter)'
+    required: false
+  project_id:
+    description: 'ID of the project (alternatively, use the "project" parameter)'
+    required: false
+  verbose:
+    description: 'Output all API calls and their results (default: false)'
+    required: false
+  verify:
+    description: 'Verify the data was added correctly (default: false)'
+    required: false
+  insecure:
+    description: 'Allow insecure requests (default: false)'
+    required: false
+  batch_size:
+    description: 'Configurable batch size (default: 50)'
+    required: false
+  timeout:
+    description: 'Batch timeout duration (default: 30)'
+    required: false
+  auto_create_cases_yes:
+    description: 'Automatically create unexisting test cases (true/false)'
+    required: false
+  auto_create_cases_no:
+    description: 'Skip creation of unexisting test cases (true/false)'
+    required: false
+  silent:
+    description: 'Silence output (default: false)'
+    required: false
+  report_file_path:
+    description: 'Path to the JUnit XML file'
+    required: true
+  title:
+    description: 'Title of Test Run to be created in TestRail'
+    required: true
+  case_matcher:
+    description: 'Mechanism to match cases between the JUnit report and TestRail (auto/name/property, default: auto)'
+    required: false
+  close_run:
+    description: 'Close the newly created run (default: false)'
+    required: false
+  suite_id:
+    description: 'Suite ID where the run will be created in case of a multi-suite project'
+    required: false
+  run_id:
+    description: 'Run ID to submit results to (by default a new Test Run is created)'
+    required: false
+  milestone_id:
+    description: 'Milestone ID to which the Test Run should be associated to'
+    required: false
+  run_description:
+    description: 'Summary text to be added to the test run'
+    required: false
+  special_parser:
+    description: 'Optional special parser option for specialized JUnit reports'
+    required: false
+  allow_ms:
+    description: 'Enable milliseconds for elapsed times (default: false)'
+    required: false
+  junit_parser_params:
+    description: 'Any parameters, as you would write them on a command line (i.e.: --case-fields type_id:1)'
+    required: false
+  working_directory:
+    description: 'The working directory to execute the TestRail CLI'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.trcli_version }}
+    - ${{ inputs.config }}
+    - ${{ inputs.host }}
+    - ${{ inputs.username }}
+    - ${{ inputs.password }}
+    - ${{ inputs.project }}
+    - ${{ inputs.project_id }}
+    - ${{ inputs.verbose }}
+    - ${{ inputs.verify }}
+    - ${{ inputs.insecure }}
+    - ${{ inputs.batch_size }}
+    - ${{ inputs.timeout }}
+    - ${{ inputs.auto_create_cases_yes }}
+    - ${{ inputs.auto_create_cases_no }}
+    - ${{ inputs.silent }}
+    - ${{ inputs.report_file_path }}
+    - ${{ inputs.title }}
+    - ${{ inputs.close_run }}
+    - ${{ inputs.case_matcher }}
+    - ${{ inputs.suite_id }}
+    - ${{ inputs.run_id }}
+    - ${{ inputs.milestone_id }}
+    - ${{ inputs.run_description }}
+    - ${{ inputs.special_parser }}
+    - ${{ inputs.allow_ms }}
+    - ${{ inputs.junit_parser_params }}
+    - ${{ inputs.working_directory }}
