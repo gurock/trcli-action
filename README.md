@@ -6,7 +6,7 @@
 
 ```yml
 - name: Execute TRCLI Action
-    uses: d-rede/trcli-action@main
+    uses: gurock/trcli-action@main
     with:
         host: 'https://my-instance.testrail.io/'
         username: 'username@testrail.com'
