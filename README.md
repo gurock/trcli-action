@@ -44,7 +44,10 @@
 | `close_run`             | Close the newly created run (default: false) |
 | `suite_id`              | Suite ID where the run will be created in case of a multi-suite project |
 | `run_id`                | Run ID to submit results to (by default a new Test Run is created) |
+| `plan_id`               | Plan ID with which the Test Run will be associated |
+| `config_ids`            | Comma-separated configuration IDs to use along with Test Plans (i.e.: 34,52) |
 | `milestone_id`          | Milestone ID to which the Test Run should be associated to |
+| `section_id`            | Section ID to create new sections with test cases under |
 | `run_description`       | Summary text to be added to the test run |
 | `special_parser`        | Optional special parser option for specialized JUnit reports |
 | `allow_ms`              | Enable milliseconds for elapsed times (default: false) |

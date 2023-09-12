@@ -53,6 +53,9 @@ append_param --milestone-id "${22}"
 append_param --run-description "${23}"
 append_param --special-parser "${24}"
 append_param_no_val --allow-ms "${25}"
+append_param --plan-id "${28}"
+append_param --config-ids "${29}"
+append_param --section-id "${30}"
 TRCLI_PARSE_JUNIT_EXTRA_PARAMS="${26}"
 
 # Install trcli

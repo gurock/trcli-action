@@ -64,8 +64,17 @@ inputs:
   run_id:
     description: 'Run ID to submit results to (by default a new Test Run is created)'
     required: false
+  plan_id:
+    description: 'Plan ID with which the Test Run will be associated'
+    required: false
+  config_ids:
+    description: 'Comma-separated configuration IDs to use along with Test Plans (i.e.: 34,52)'
+    required: false
   milestone_id:
     description: 'Milestone ID to which the Test Run should be associated to'
+    required: false
+  section_id:
+    description: 'Section ID to create new sections with test cases under'
     required: false
   run_description:
     description: 'Summary text to be added to the test run'
@@ -113,3 +122,6 @@ runs:
     - ${{ inputs.allow_ms }}
     - ${{ inputs.junit_parser_params }}
     - ${{ inputs.working_directory }}
+    - ${{ inputs.plan_id }}
+    - ${{ inputs.config_ids }}
+    - ${{ inputs.section_id }}
