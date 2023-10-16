@@ -53,3 +53,6 @@
 | `allow_ms`              | Enable milliseconds for elapsed times (default: false) |
 | `junit_parser_params`   | Any parameters, as you would write them on a command line (i.e.: --case-fields type_id:1) |
 
+# License
+
+[MIT](LICENSE)
