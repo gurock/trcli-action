@@ -23,7 +23,7 @@
 | Parameter               | Description     |
 |-------------------------|-----------------|
 | `trcli_version`         | Version of the CLI to be installed (defaults to latest) |
-| `working_directory`     | The working directory to execute the TestRail CLI |
+| `working_directory`     | The working directory to execute the TestRail CLI; if not specified, defaults to the GITHUB_WORKSPACE environment variable |
 | `config`                | Optional path for config yml file |
 | `host`                  | TestRail host URL (i.e.: https://my-instance.testrail.io) |
 | `username`              | Authentication username |
