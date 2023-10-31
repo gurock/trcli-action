@@ -19,8 +19,12 @@ function append_param_no_val {
 
 # Navigate to work dir
 WORKING_DIR=${27}
-cd $WORKING_DIR
-ls
+if [ -z "$WORKING_DIR" ]
+then
+ cd $GITHUB_WORKSPACE
+fi
+
+ls -la
 
 # Parameters
 TRCLI_PARAMS=""
