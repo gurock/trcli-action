@@ -1,5 +1,8 @@
 name: 'TestRail CLI'
 description: 'Use the TestRail CLI to interact with TestRail'
+branding:
+  icon: 'check-circle'  
+  color: 'green'
 inputs:
   trcli_version:
     description: 'Version of the CLI to be installed (defaults to latest)'
