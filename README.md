@@ -1,5 +1,15 @@
 # TestRail CLI results upload action
 
+![Deprecated](https://img.shields.io/badge/status-deprecated-red) ![End of Maintenance](https://img.shields.io/badge/maintained%20until-June%207%2C%202026-orange)
+
+> **⚠️ DEPRECATION NOTICE**
+>
+> This GitHub Action is deprecated and will no longer be maintained after **[June 7, 2026]**.
+>
+> We recommend migrating to direct PIP installation for better flexibility and control.
+>
+> **Migration Path:** See the [Direct PIP Installation](#migration-to-direct-pip-installation) section below for instructions on how to use TRCLI directly in your workflows.
+
  > [GitHub Action](https://docs.github.com/en/actions) to upload automated test results to [TestRail](https://www.testrail.com) using the [TestRail CLI](https://github.com/gurock/trcli). The action handles the installation of the desired CLI version and allows setting all of the configurations supported by the CLI.
 
  # Usage example
@@ -52,6 +62,38 @@
 | `special_parser`        | Optional special parser option for specialized JUnit reports |
 | `allow_ms`              | Enable milliseconds for elapsed times (default: false) |
 | `junit_parser_params`   | Any parameters, as you would write them on a command line (i.e.: --case-fields type_id:1) |
+
+# Migration to Direct PIP Installation
+
+You can install and use TRCLI directly from PIP in your GitHub Actions workflow:
+
+```yml
+- name: Set up Python
+  uses: actions/setup-python@v5
+  with:
+    python-version: '3.x'
+
+- name: Install TRCLI
+  run: pip install trcli
+
+- name: Upload test results to TestRail
+  env:
+    TRCLI_HOST: 'https://my-instance.testrail.io/'
+    TRCLI_USERNAME: ${{ secrets.TESTRAIL_USERNAME }}
+    TRCLI_PASSWORD: ${{ secrets.TESTRAIL_PASSWORD }}
+  run: |
+    trcli -y \
+      -h "$TRCLI_HOST" \
+      --project "Sample project" \
+      -u "$TRCLI_USERNAME" \
+      -p "$TRCLI_PASSWORD" \
+      parse_junit \
+      --title "Automated test run" \
+      --run-description "GitHub workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+      -f "reports/junit-report.xml"
+```
+
+For more information on TRCLI and its options, visit the [official TRCLI repository](https://github.com/gurock/trcli).
 
 # License
 

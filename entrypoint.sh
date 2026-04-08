@@ -1,5 +1,24 @@
 #!/bin/bash
 
+# ============================================================================
+# DEPRECATION WARNING
+# ============================================================================
+echo ""
+echo "╔════════════════════════════════════════════════════════════════════════╗"
+echo "║                         ⚠️  DEPRECATION NOTICE                         ║"
+echo "╚════════════════════════════════════════════════════════════════════════╝"
+echo ""
+echo "  This GitHub Action is deprecated and will no longer be maintained"
+echo "  after June 7, 2026."
+echo ""
+echo "  Please migrate to using TRCLI directly from PIP for better flexibility."
+echo ""
+echo "  Migration guide:"
+echo "  https://github.com/gurock/trcli-action#migration-to-direct-pip-installation"
+echo ""
+echo "============================================================================"
+echo ""
+
 # Functions
 function append_param {
     local param=$1
